@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+	<meta charset="utf-8">
+        <title>Clue-Less-Divs</title>
+        
+        <link href="css/normalize.css" rel="stylesheet">
+        <link href="css/styles.css" rel="stylesheet">
+        
+        <!-- jQuery UI CSS -->
+        <link href="js/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
+		
+    </head>
+    
+    <body>
+        
+        <div class="container" class="clearfix">
+            <!--h1>Clue-Less</h1-->
+            <button id="playGameBtn">Play game</button>
+            
+            <br>
+            <form>
+                <div class="guess">
+                    <p>Guess Suspect</p>
+                        <select id="suspectList" size="1" onchange="chooseSuspect()">
+                          <option>Colonel Mustard</option>
+                          <option>Miss Scarlet</option>
+                          <option>Professor Plum</option>
+                          <option>Mr. Green</option>
+                          <option>Mrs. White</option>
+                          <option>Mrs. Peacock</option>
+                        </select>
+                </div>
+                <br>
+                <div class="guess">
+                    <p>Guess Weapon</p>
+                        <select id="weaponList" size="1" onchange="chooseWeapon()">
+                          <option>Rope</option>
+                          <option>Lead Pipe</option>
+                          <option>Knife</option>
+                          <option>Wrench</option>
+                          <option>Candlestick</option>
+                        </select>
+               </div>
+                <br>
+              <div class="guess">
+                  <p>Guess Location</p>
+                     <select id="locationList" size="1" onchange="chooseLocation()">
+                         <option>Study</option>
+                         <option>Hall</option>
+                         <option>Lounge</option>
+                         <option>Library</option>
+                         <option>Billiard Room</option>
+                         <option>Dining Room</option>
+                         <option>Conservatory</option>
+                         <option>Ballroom</option>
+                         <option>Kitchen</option>
+                        </select>
+                </div>
+            </form>
+            <p>Suspect: <input type="text" id="suspectList"></p>
+            <br>
+			
+            <!--p>How many players are there? <span id="current"></span>
+			<input type="text" id="myText">
+
+			<p>Click for random room assignments.</p>
+
+			<button onclick="init()">Init players and rooms</button>
+			<button onclick="assignPlayers()">Assign random player to room</button>
+			<p id="demo"></p-->
+			
+			<div id ="board">
+				
+				<div class = "row">				
+					<!-- Replace text with image location -->
+					<div id="study" class="room">Study</div>
+					<div class="room">Hallway</div>
+					<div id="hall" class="room">Hall</div>
+					<div class="room">Hallway</div>
+					<div id="lounge" class="room">Lounge</div>
+				</div>
+	
+				<br>
+					
+				<div class = "row">
+					<!-- Replace text with image location -->
+					<div class="room">Hallway</div>
+					<div class="room">Hallway</div>
+					<div class="room">Hallway</div>
+					<div class="room">Hallway</div>
+					<div class="room">Hallway</div>
+				</div>
+					
+				<br>
+					
+				<div class = "row">
+					<!-- Replace text with image location -->
+					<div id="library" class="room">Library</div>
+					<div class="room">Hallway</div>
+					<div id="billiard"class="room">Billiard Room</div>
+					<div class="room">Hallway</div>
+					<div id="dining" class="room">Dining Room</div>
+				</div>
+					
+				<br>
+					
+				<div class = "row">
+					<!-- Replace text with image location -->
+					<div class="room">Hallway</div>
+					<div class="room">Hallway</div>
+					<div class="room">Hallway</div>
+					<div class="room">Hallway</div>
+					<div class="room">Hallway</div>
+				</div>
+					
+				<br>
+				
+				<div class = "row">
+					<!-- Replace text with image location -->
+					<div id="conservatory" class="room">Conservatory</div>
+					<div class="room">Hallway</div>
+					<div id="ballroom" class="room">Ballroom</div>
+					<div class="room">Hallway</div>
+					<div id="kitchen" class="room">Kitchen</div>
+				</div>
+
+                
+			</div><!--board-->
+			
+            
+            
+			<div id="playerPanel">			
+				<img id="colMustard" class="player" src="images/colMustard.png" draggable="true">
+				<img id="missScarlet" class="player" src="images/missScarlet.png" draggable="true">
+				<img id="mrGreen" class="player" src="images/mrGreen.png" draggable="true">
+				<img id="mrsPeacock" class="player" src="images/mrsPeacock.png" draggable="true">
+				<img id="mrsWhite" class="player" src="images/mrsWhite.png" draggable="true">
+				<img id="profPlum" class="player" src="images/profPlum.png" draggable="true">
+			</div><!-- #playerPanel -->
+		
+		
+		
+		
+		
+		<div>
+		<!--from:
+			<ul class="draggable_widget">
+				<img id="mrGreen" class="player" src="images/mrGreen.png" draggable="true">
+				<img id="mrsPeacock" class="player" src="images/mrsPeacock.png" draggable="true">
+				<!--li>one</li>
+				<li>two</li-->
+			<!--/ul>
+		to:
+			<ul id="droppable_widget">
+			</ul>
+		</div-->
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+        </div><!-- .containerEnd-->
+        
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<!-- Load the CDN first -->
+        <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+        
+        <!-- If CDN fails to load, serve up the local version -->
+        <script>window.jQuery || document.write('<script src="js/jquery-2.1.4.js"><\/script>');</script>
+        
+        <!-- jQuery UI -->
+        <script src="js/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+
+        <script src="js/script.js"></script>
+		
+		<!-- Crafty JS -->
+        <link href="js/crafty/crafty-min.js" rel="stylesheet">
+    </body>
+    
+</html>
+
