@@ -17,12 +17,12 @@
         
         <div class="container" class="clearfix">
             <!--h1>Clue-Less</h1-->
-            <button id="playGameBtn">Play game</button>
+            <!--button id="playGameBtn">Play game</button-->
             
             <br>
-            <form>
+            <form id="selection">
                 <div class="guess">
-                    <p>Guess Suspect</p>
+                  <label for="suspectList">Guess Suspect</label>
                         <select id="suspectList" size="1" onchange="chooseSuspect()">
                           <option>Colonel Mustard</option>
                           <option>Miss Scarlet</option>
@@ -34,7 +34,7 @@
                 </div>
                 <br>
                 <div class="guess">
-                    <p>Guess Weapon</p>
+                  <label for="weaponList">Guess Weapon</label>
                         <select id="weaponList" size="1" onchange="chooseWeapon()">
                           <option>Rope</option>
                           <option>Lead Pipe</option>
@@ -45,7 +45,7 @@
                </div>
                 <br>
               <div class="guess">
-                  <p>Guess Location</p>
+                  <label for="locationList">Guess Location</label>
                      <select id="locationList" size="1" onchange="chooseLocation()">
                          <option>Study</option>
                          <option>Hall</option>
@@ -58,8 +58,10 @@
                          <option>Kitchen</option>
                         </select>
                 </div>
+                <p>Result: <input type="text" id="result"></p>
+                <button id="guessBtn">Guess</button>
             </form>
-            <p>Suspect: <input type="text" id="suspectList"></p>
+            
             <br>
 			
             <!--p>How many players are there? <span id="current"></span>
@@ -75,55 +77,105 @@
 				
 				<div class = "row">				
 					<!-- Replace text with image location -->
-					<div id="study" class="room">Study</div>
-					<div class="room">Hallway</div>
-					<div id="hall" class="room">Hall</div>
-					<div class="room">Hallway</div>
-					<div id="lounge" class="room">Lounge</div>
+					<div id="study">
+                        <img class="room" src='images/roomStudy.png'/>
+                    </div>
+					<div class="room">
+                        <img class="hallway" src='images/hallway.png'/>
+                    </div>
+					<div id="hall">
+                        <img class="room" src='images/roomHall.png'/>
+                    </div>
+					<div class="room">
+                        <img class="hallway" src='images/hallway.png'/>
+                    </div>
+					<div id="lounge">
+                        <img class="room" src='images/roomLounge.png'/>
+                    </div>
 				</div>
 	
 				<br>
 					
 				<div class = "row">
 					<!-- Replace text with image location -->
-					<div class="room">Hallway</div>
-					<div class="room">Hallway</div>
-					<div class="room">Hallway</div>
-					<div class="room">Hallway</div>
-					<div class="room">Hallway</div>
+					<div class="hallway">
+                        <img class="hallway" src='images/hallway.png'/>
+                    </div>
+                    <div class="room">
+                        <img class="hallway" src='images/hallway.png'/>
+                    </div>
+                    <div class="room">
+                        <img class="hallway" src='images/hallway.png'/>
+                    </div>
+                    <div class="room">
+                        <img class="hallway" src='images/hallway.png'/>
+                    </div>
+                    <div class="room">
+                        <img class="hallway" src='images/hallway.png'/>
+                    </div>
 				</div>
 					
 				<br>
 					
 				<div class = "row">
 					<!-- Replace text with image location -->
-					<div id="library" class="room">Library</div>
-					<div class="room">Hallway</div>
-					<div id="billiard"class="room">Billiard Room</div>
-					<div class="room">Hallway</div>
-					<div id="dining" class="room">Dining Room</div>
+					<div id="library">
+                        <img class="room" src='images/roomLibrary.png'/>
+                    </div>
+					<div class="hallway">
+                        <img class="hallway" src='images/hallway.png'/>
+                    </div>
+					<div id="billiard">
+                        <img  class="room" src='images/roomBilliard.png'/>
+                    </div>
+					<div class="hallway">
+                        <img class="hallway" src='images/hallway.png'/>
+                    </div>
+					<div id="dining">
+                        <img class="room" src='images/roomDining.png'/>
+                    </div>
 				</div>
 					
 				<br>
 					
 				<div class = "row">
 					<!-- Replace text with image location -->
-					<div class="room">Hallway</div>
-					<div class="room">Hallway</div>
-					<div class="room">Hallway</div>
-					<div class="room">Hallway</div>
-					<div class="room">Hallway</div>
+					<div class="room">
+                        <img class="room" src='images/hallway.png'/>
+                    </div>
+                    <div class="room">
+                        <img class="room" src='images/hallway.png'/>
+                    </div>
+                    <div class="room">
+                        <img class="room" src='images/hallway.png'/>
+                    </div>
+                    <div class="room">
+                        <img class="room" src='images/hallway.png'/>
+                    </div>
+                    <div class="room">
+                        <img class="room" src='images/hallway.png'/>
+                    </div>
 				</div>
 					
 				<br>
 				
 				<div class = "row">
 					<!-- Replace text with image location -->
-					<div id="conservatory" class="room">Conservatory</div>
-					<div class="room">Hallway</div>
-					<div id="ballroom" class="room">Ballroom</div>
-					<div class="room">Hallway</div>
-					<div id="kitchen" class="room">Kitchen</div>
+					<div id="conservatory">
+                        <img class="room" src='images/roomConservatory.png'/>
+                    </div>
+					<div class="hallway">
+                        <img class="hallway" src='images/hallway.png'/>
+                    </div>
+					<div id="ballroom">
+                        <img class="room" src='images/roomBallRoom.png'/>
+                    </div>
+					<div class="hallway">
+                        <img class="hallway" src='images/hallway.png'/>
+                    </div>
+					<div id="kitchen">
+                        <img class="room" src='images/roomKitchen.png'/>
+                    </div>
 				</div>
 
                 
