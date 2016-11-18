@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+	<meta charset="utf-8">
+        <title>Clue-Less-Divs</title>
+        
+        <link href="css/normalize.css" rel="stylesheet">
+        <link href="css/styles.css" rel="stylesheet">
+        
+        <!-- jQuery UI CSS -->
+        <link href="js/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
+		
+    </head>
+    
+    <body>
+        
+        <div class="container gray" style="background-color:#6EAC7D" class="clearfix">
+            <!--h1>Clue-Less</h1-->
+            <!--button id="playGameBtn">Play game</button-->
+            
+            <br>
+            <form method="get" id="selection">
+                <div class="guess">
+                  <label for="suspectList">Guess Suspect</label>
+                        <select name="suspectList" id="suspectList" style="width: 145px" onchange="chooseSuspect()">
+                          <option value="Colonel Mustard">Colonel Mustard</option>
+                          <option value="Miss Scarlet">Miss Scarlet</option>
+                          <option value="Professor Plum">Professor Plum</option>
+                          <option value="Mr. Green">Mr. Green</option>
+                          <option value="Mrs. White">Mrs. White</option>
+                          <option value="Mrs. Peacock">Mrs. Peacock</option>
+                        </select>
+                </div>
+                <br>
+                <div class="guess">
+                  <label for="weaponList">Guess Weapon</label>
+                        <select name="weaponList" id="weaponList" style="width: 145px" onchange="chooseWeapon()">
+                          <option value="Rope">Rope</option>
+                          <option value="Lead Pipe">Lead Pipe</option>
+                          <option value="Knife">Knife</option>
+                          <option value="Wrench">Wrench</option>
+                          <option value="Candlestick">Candlestick</option>
+                        </select>
+               </div>
+                <br>
+              <div class="guess">
+                  <label for="locationList">Guess Location</label>
+                     <select name="LocationList" id="locationList" style="width: 145px" onchange="chooseLocation()">
+                         <option value="Study">Study</option>
+                         <option value="Hall">Hall</option>
+                         <option value="Lounge">Lounge</option>
+                         <option value="Library">Library</option>
+                         <option value="Billiard Room">Billiard Room</option>
+                         <option value="Dining Room">Dining Room</option>
+                         <option value="Conservatory">Conservatory</option>
+                         <option value="Ballroom">Ballroom</option>
+                         <option value="Kitchen">Kitchen</option>
+                        </select>
+                </div>
+                <p>Result: <input type="text"  style="width: 140px" id="result"></p>
+               <!--  <button id="guessBtn">Guess</button> -->
+               
+               <input type="submit" value="SEND" />
+            </form>
+            
+            <br>
+			
+            <!--p>How many players are there? <span id="current"></span>
+			<input type="text" id="myText">
+
+			<p>Click for random room assignments.</p>
+
+			<button onclick="init()">Init players and rooms</button>
+			<button onclick="assignPlayers()">Assign random player to room</button>
+			<p id="demo"></p-->
+			
+			<div id ="board">
+				
+				<div class="row">				
+					<!-- Replace text with image location -->
+					<div id="study">
+                        <img class="room" src='images/roomStudy.png'/>
+                    </div>
+					<div class="room">
+                        <img class="hallway" src='images/hallway.png'/>
+                    </div>
+					<div id="hall">
+                        <img class="room" src='images/roomHall.png'/>
+                    </div>
+					<div class="room">
+                        <img class="hallway" src='images/hallway.png'/>
+                    </div>
+					<div id="lounge">
+                        <img class="room" src='images/roomLounge.png'/>
+                    </div>
+				</div>
+	
+				
+					
+				<div class = "row">
+					<!-- Replace text with image location -->
+					<div class="hallway">
+                        <img class="hallway" src='images/hallway.png'/>
+                    </div>
+                    <div class="room">
+                        <img class="hallway" src='images/hallway.png'/>
+                    </div>
+                    <div class="room">
+                        <img class="hallway" src='images/hallway.png'/>
+                    </div>
+                    <div class="room">
+                        <img class="hallway" src='images/hallway.png'/>
+                    </div>
+                    <div class="room">
+                        <img class="hallway" src='images/hallway.png'/>
+                    </div>
+				</div>
+					
+				
+					
+				<div class = "row">
+					<!-- Replace text with image location -->
+					<div id="library">
+                        <img class="room" src='images/roomLibrary.png'/>
+                    </div>
+					<div class="hallway">
+                        <img class="hallway" src='images/hallway.png'/>
+                    </div>
+					<div id="billiard">
+                        <img  class="room" src='images/roomBilliard.png'/>
+                    </div>
+					<div class="hallway">
+                        <img class="hallway" src='images/hallway.png'/>
+                    </div>
+					<div id="dining">
+                        <img class="room" src='images/roomDining.png'/>
+                    </div>
+				</div>
+					
+				
+					
+				<div class = "row">
+					<!-- Replace text with image location -->
+					<div class="room">
+                        <img class="room" src='images/hallway.png'/>
+                    </div>
+                    <div class="room">
+                        <img class="room" src='images/hallway.png'/>
+                    </div>
+                    <div class="room">
+                        <img class="room" src='images/hallway.png'/>
+                    </div>
+                    <div class="room">
+                        <img class="room" src='images/hallway.png'/>
+                    </div>
+                    <div class="room">
+                        <img class="room" src='images/hallway.png'/>
+                    </div>
+				</div>
+					
+				
+				
+				<div class = "row">
+					<!-- Replace text with image location -->
+					<div id="conservatory">
+                        <img class="room" src='images/roomConservatory.png'/>
+                    </div>
+					<div class="hallway">
+                        <img class="hallway" src='images/hallway.png'/>
+                    </div>
+					<div id="ballroom">
+                        <img class="room" src='images/roomBallRoom.png'/>
+                    </div>
+					<div class="hallway">
+                        <img class="hallway" src='images/hallway.png'/>
+                    </div>
+					<div id="kitchen">
+                        <img class="room" src='images/roomKitchen.png'/>
+                    </div>
+				</div>
+
+                
+			</div><!--board-->
+			
+            
+            
+			<div id="playerPanel">			
+				<img id="colMustard" class="player" src="images/colMustard.png" draggable="true">
+				<img id="missScarlet" class="player" src="images/missScarlet.png" draggable="true">
+				<img id="mrGreen" class="player" src="images/mrGreen.png" draggable="true">
+				<img id="mrsPeacock" class="player" src="images/mrsPeacock.png" draggable="true">
+				<img id="mrsWhite" class="player" src="images/mrsWhite.png" draggable="true">
+				<img id="profPlum" class="player" src="images/profPlum.png" draggable="true">
+			</div><!-- #playerPanel -->
+		
+		
+		
+		
+		
+		<div>
+		<!--from:
+			<ul class="draggable_widget">
+				<img id="mrGreen" class="player" src="images/mrGreen.png" draggable="true">
+				<img id="mrsPeacock" class="player" src="images/mrsPeacock.png" draggable="true">
+				<!--li>one</li>
+				<li>two</li-->
+			<!--/ul>
+		to:
+			<ul id="droppable_widget">
+			</ul>
+		</div-->
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+        </div><!-- .containerEnd-->
+        
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<!-- Load the CDN first -->
+        <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+        
+        <!-- If CDN fails to load, serve up the local version -->
+        <script>window.jQuery || document.write('<script src="js/jquery-2.1.4.js"><\/script>');</script>
+        
+        <!-- jQuery UI -->
+        <script src="js/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+
+        <script src="js/script.js"></script>
+		
+		<!-- Crafty JS -->
+        <link href="js/crafty/crafty-min.js" rel="stylesheet">
+    </body>
+    
+</html>
+
