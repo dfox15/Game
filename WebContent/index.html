@@ -15,51 +15,53 @@
     
     <body>
         
-        <div class="container" class="clearfix">
+        <div class="container gray" style="background-color:#6EAC7D" class="clearfix">
             <!--h1>Clue-Less</h1-->
             <!--button id="playGameBtn">Play game</button-->
             
             <br>
-            <form id="selection">
+            <form method="get" id="selection">
                 <div class="guess">
                   <label for="suspectList">Guess Suspect</label>
-                        <select id="suspectList" size="1" onchange="chooseSuspect()">
-                          <option>Colonel Mustard</option>
-                          <option>Miss Scarlet</option>
-                          <option>Professor Plum</option>
-                          <option>Mr. Green</option>
-                          <option>Mrs. White</option>
-                          <option>Mrs. Peacock</option>
+                        <select name="suspectList" id="suspectList" style="width: 145px" onchange="chooseSuspect()">
+                          <option value="Colonel Mustard">Colonel Mustard</option>
+                          <option value="Miss Scarlet">Miss Scarlet</option>
+                          <option value="Professor Plum">Professor Plum</option>
+                          <option value="Mr. Green">Mr. Green</option>
+                          <option value="Mrs. White">Mrs. White</option>
+                          <option value="Mrs. Peacock">Mrs. Peacock</option>
                         </select>
                 </div>
                 <br>
                 <div class="guess">
                   <label for="weaponList">Guess Weapon</label>
-                        <select id="weaponList" size="1" onchange="chooseWeapon()">
-                          <option>Rope</option>
-                          <option>Lead Pipe</option>
-                          <option>Knife</option>
-                          <option>Wrench</option>
-                          <option>Candlestick</option>
+                        <select name="weaponList" id="weaponList" style="width: 145px" onchange="chooseWeapon()">
+                          <option value="Rope">Rope</option>
+                          <option value="Lead Pipe">Lead Pipe</option>
+                          <option value="Knife">Knife</option>
+                          <option value="Wrench">Wrench</option>
+                          <option value="Candlestick">Candlestick</option>
                         </select>
                </div>
                 <br>
               <div class="guess">
                   <label for="locationList">Guess Location</label>
-                     <select id="locationList" size="1" onchange="chooseLocation()">
-                         <option>Study</option>
-                         <option>Hall</option>
-                         <option>Lounge</option>
-                         <option>Library</option>
-                         <option>Billiard Room</option>
-                         <option>Dining Room</option>
-                         <option>Conservatory</option>
-                         <option>Ballroom</option>
-                         <option>Kitchen</option>
+                     <select name="LocationList" id="locationList" style="width: 145px" onchange="chooseLocation()">
+                         <option value="Study">Study</option>
+                         <option value="Hall">Hall</option>
+                         <option value="Lounge">Lounge</option>
+                         <option value="Library">Library</option>
+                         <option value="Billiard Room">Billiard Room</option>
+                         <option value="Dining Room">Dining Room</option>
+                         <option value="Conservatory">Conservatory</option>
+                         <option value="Ballroom">Ballroom</option>
+                         <option value="Kitchen">Kitchen</option>
                         </select>
                 </div>
-                <p>Result: <input type="text" id="result"></p>
-                <button id="guessBtn">Guess</button>
+                <p>Result: <input type="text"  style="width: 140px" id="result"></p>
+               <!--  <button id="guessBtn">Guess</button> -->
+               
+               <input type="submit" value="SEND" />
             </form>
             
             <br>
@@ -75,7 +77,7 @@
 			
 			<div id ="board">
 				
-				<div class = "row">				
+				<div class="row">				
 					<!-- Replace text with image location -->
 					<div id="study">
                         <img class="room" src='images/roomStudy.png'/>
@@ -94,7 +96,7 @@
                     </div>
 				</div>
 	
-				<br>
+				
 					
 				<div class = "row">
 					<!-- Replace text with image location -->
@@ -115,7 +117,7 @@
                     </div>
 				</div>
 					
-				<br>
+				
 					
 				<div class = "row">
 					<!-- Replace text with image location -->
@@ -136,7 +138,7 @@
                     </div>
 				</div>
 					
-				<br>
+				
 					
 				<div class = "row">
 					<!-- Replace text with image location -->
@@ -157,7 +159,7 @@
                     </div>
 				</div>
 					
-				<br>
+				
 				
 				<div class = "row">
 					<!-- Replace text with image location -->
@@ -191,47 +193,9 @@
 				<img id="mrsWhite" class="player" src="images/mrsWhite.png" draggable="true">
 				<img id="profPlum" class="player" src="images/profPlum.png" draggable="true">
 			</div><!-- #playerPanel -->
-		
-		
-		
-		
-		
-		<div>
-		<!--from:
-			<ul class="draggable_widget">
-				<img id="mrGreen" class="player" src="images/mrGreen.png" draggable="true">
-				<img id="mrsPeacock" class="player" src="images/mrsPeacock.png" draggable="true">
-				<!--li>one</li>
-				<li>two</li-->
-			<!--/ul>
-		to:
-			<ul id="droppable_widget">
-			</ul>
-		</div-->
-		
-		
-		
-		
-		
-		
-		
-		
-		
 
-        </div><!-- .containerEnd-->
+	</div><!-- .containerEnd-->
         
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		<!-- Load the CDN first -->
         <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
@@ -245,7 +209,7 @@
         <script src="js/script.js"></script>
 		
 		<!-- Crafty JS -->
-        <link href="js/crafty/crafty-min.js" rel="stylesheet">
+        <!--link href="js/crafty/crafty-min.js" rel="stylesheet"-->
     </body>
     
 </html>
