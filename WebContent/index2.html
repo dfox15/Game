@@ -20,46 +20,48 @@
             <!--button id="playGameBtn">Play game</button-->
             
             <br>
-            <form id="selection">
+            <form method="get" id="selection">
                 <div class="guess">
                   <label for="suspectList">Guess Suspect</label>
-                        <select id="suspectList" style="width: 145px" onchange="chooseSuspect()">
-                          <option>Colonel Mustard</option>
-                          <option>Miss Scarlet</option>
-                          <option>Professor Plum</option>
-                          <option>Mr. Green</option>
-                          <option>Mrs. White</option>
-                          <option>Mrs. Peacock</option>
+                        <select name="suspectList" id="suspectList" style="width: 145px" onchange="chooseSuspect()">
+                          <option value="Colonel Mustard">Colonel Mustard</option>
+                          <option value="Miss Scarlet">Miss Scarlet</option>
+                          <option value="Professor Plum">Professor Plum</option>
+                          <option value="Mr. Green">Mr. Green</option>
+                          <option value="Mrs. White">Mrs. White</option>
+                          <option value="Mrs. Peacock">Mrs. Peacock</option>
                         </select>
                 </div>
                 <br>
                 <div class="guess">
                   <label for="weaponList">Guess Weapon</label>
-                        <select id="weaponList" style="width: 145px" onchange="chooseWeapon()">
-                          <option>Rope</option>
-                          <option>Lead Pipe</option>
-                          <option>Knife</option>
-                          <option>Wrench</option>
-                          <option>Candlestick</option>
+                        <select name="weaponList" id="weaponList" style="width: 145px" onchange="chooseWeapon()">
+                          <option value="Rope">Rope</option>
+                          <option value="Lead Pipe">Lead Pipe</option>
+                          <option value="Knife">Knife</option>
+                          <option value="Wrench">Wrench</option>
+                          <option value="Candlestick">Candlestick</option>
                         </select>
                </div>
                 <br>
               <div class="guess">
                   <label for="locationList">Guess Location</label>
-                     <select id="locationList" style="width: 145px" onchange="chooseLocation()">
-                         <option>Study</option>
-                         <option>Hall</option>
-                         <option>Lounge</option>
-                         <option>Library</option>
-                         <option>Billiard Room</option>
-                         <option>Dining Room</option>
-                         <option>Conservatory</option>
-                         <option>Ballroom</option>
-                         <option>Kitchen</option>
+                     <select name="LocationList" id="locationList" style="width: 145px" onchange="chooseLocation()">
+                         <option value="Study">Study</option>
+                         <option value="Hall">Hall</option>
+                         <option value="Lounge">Lounge</option>
+                         <option value="Library">Library</option>
+                         <option value="Billiard Room">Billiard Room</option>
+                         <option value="Dining Room">Dining Room</option>
+                         <option value="Conservatory">Conservatory</option>
+                         <option value="Ballroom">Ballroom</option>
+                         <option value="Kitchen">Kitchen</option>
                         </select>
                 </div>
                 <p>Result: <input type="text"  style="width: 140px" id="result"></p>
-                <button id="guessBtn">Guess</button>
+               <!--  <button id="guessBtn">Guess</button> -->
+               
+               <input type="submit" value="SEND" />
             </form>
             
             <br>
