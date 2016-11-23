@@ -16,11 +16,6 @@ $.fn.center = function () {
 $("#splashScreen").show();
 $("#splashScreen-content").show().center();
 
-/*setTimeout(function(){    
-  $("#overlay").fadeOut();
-}, 150000);
-*/
-
 function startGame() {
     $("#splashScreen").fadeOut();
 }
