@@ -20,15 +20,6 @@ function startGame() {
     $("#splashScreen").fadeOut();
 }
 
-
-
-
-
-
-
-
-
-
 $(function() {
 	$('.player').draggable({
 		containment: ".container", 
