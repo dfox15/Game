@@ -1,21 +1,30 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<web-app version="3.0"
-  xmlns="http://java.sun.com/xml/ns/javaee"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
- 
-  <!-- To save as <CATALINA_HOME>\webapps\helloservlet\WEB-INF\web.xml -->
- 
-   <servlet>
-      <servlet-name>Location</servlet-name>
-      <servlet-class>state.Location</servlet-class>
-   </servlet>
- 
-   <!-- Note: All <servlet> elements MUST be grouped together and
-         placed IN FRONT of the <servlet-mapping> elements -->
- 
-   <servlet-mapping>
-      <servlet-name>Location</servlet-name>
-      <url-pattern>/location</url-pattern>
-   </servlet-mapping>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+
+	<!-- To save as <CATALINA_HOME>\webapps\helloservlet\WEB-INF\web.xml -->
+	
+	<welcome-file-list>
+		<welcome-file>index2.html</welcome-file>
+	</welcome-file-list>
+
+	<servlet>
+		<servlet-name>AccuseServletTest</servlet-name>
+		<servlet-class>state.AccuseServlet</servlet-class>
+	</servlet>
+
+	<!-- <servlet> <servlet-name>EchoServletExample</servlet-name> <servlet-class>mypkg.EchoServlet</servlet-class> 
+		</servlet> -->
+
+	<!-- Note: All <servlet> elements MUST be grouped together and placed IN 
+		FRONT of the <servlet-mapping> elements -->
+
+	<servlet-mapping>
+		<servlet-name>AccuseServletTest</servlet-name>
+		<url-pattern>/accuse</url-pattern>
+	</servlet-mapping>
+
+	<!-- <servlet-mapping> <servlet-name>EchoServletExample</servlet-name> <url-pattern>/echo</url-pattern> 
+		</servlet-mapping> -->
 </web-app>
