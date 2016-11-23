@@ -1,5 +1,9 @@
 // script.js
 
+$('.enter_link').click(function () {
+    $(this).parent('#splashscreen').fadeOut(500);
+});
+
 $(function() {
 	$('.player').draggable({
 		containment: ".container", 

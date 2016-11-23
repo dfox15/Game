@@ -14,7 +14,7 @@
     </head>
     
     <body>
-        
+
         <div class="container gray" style="background-color:#6EAC7D" class="clearfix">
             <!--h1>Clue-Less</h1-->
             <!--button id="playGameBtn">Play game</button-->
@@ -66,6 +66,10 @@
             
             <br>
 			
+            <div id="splashscreen">
+                <h2>Welcome !</h2>
+                <a href="#" class="enter_link">Enter on the website</a>
+            </div>
             <!--p>How many players are there? <span id="current"></span>
 			<input type="text" id="myText">
 
@@ -78,121 +82,55 @@
 			<div id ="board">
 				
 				<div class="row">				
-					<!-- Replace text with image location -->
-					<div id="study">
-                        <img class="room" src='images/roomStudy.png'/>
-                    </div>
-					<div class="room">
-                        <img class="hallway" src='images/hallway.png'/>
-                    </div>
-					<div id="hall">
-                        <img class="room" src='images/roomHall.png'/>
-                    </div>
-					<div class="room">
-                        <img class="hallway" src='images/hallway.png'/>
-                    </div>
-					<div id="lounge">
-                        <img class="room" src='images/roomLounge.png'/>
-                    </div>
+                    <img class="room" id="roomStudy" src='images/roomStudy.png'/>
+                    <img class="room" src='images/hallway.png'/>
+                    <img class="room" id="roomHall" src='images/roomHall.png'/>
+                    <img id="missScarlet" class="player" src="images/missScarlet.png" draggable="true">
+                    <img class="room" src='images/hallway.png'/>
+                    <img class="room" id="roomLounge" src='images/roomLounge.png'/>
 				</div>
 	
-				
-					
 				<div class = "row">
-					<!-- Replace text with image location -->
-					<div class="hallway">
-                        <img class="hallway" src='images/hallway.png'/>
-                    </div>
-                    <div class="room">
-                        <img class="hallway" src='images/hallway.png'/>
-                    </div>
-                    <div class="room">
-                        <img class="hallway" src='images/hallway.png'/>
-                    </div>
-                    <div class="room">
-                        <img class="hallway" src='images/hallway.png'/>
-                    </div>
-                    <div class="room">
-                        <img class="hallway" src='images/hallway.png'/>
-                    </div>
-				</div>
-					
-				
-					
-				<div class = "row">
-					<!-- Replace text with image location -->
-					<div id="library">
-                        <img class="room" src='images/roomLibrary.png'/>
-                    </div>
-					<div class="hallway">
-                        <img class="hallway" src='images/hallway.png'/>
-                    </div>
-					<div id="billiard">
-                        <img  class="room" src='images/roomBilliard.png'/>
-                    </div>
-					<div class="hallway">
-                        <img class="hallway" src='images/hallway.png'/>
-                    </div>
-					<div id="dining">
-                        <img class="room" src='images/roomDining.png'/>
-                    </div>
-				</div>
-					
-				
-					
-				<div class = "row">
-					<!-- Replace text with image location -->
-					<div class="room">
-                        <img class="room" src='images/hallway.png'/>
-                    </div>
-                    <div class="room">
-                        <img class="room" src='images/hallway.png'/>
-                    </div>
-                    <div class="room">
-                        <img class="room" src='images/hallway.png'/>
-                    </div>
-                    <div class="room">
-                        <img class="room" src='images/hallway.png'/>
-                    </div>
-                    <div class="room">
-                        <img class="room" src='images/hallway.png'/>
-                    </div>
-				</div>
-					
-				
-				
-				<div class = "row">
-					<!-- Replace text with image location -->
-					<div id="conservatory">
-                        <img class="room" src='images/roomConservatory.png'/>
-                    </div>
-					<div class="hallway">
-                        <img class="hallway" src='images/hallway.png'/>
-                    </div>
-					<div id="ballroom">
-                        <img class="room" src='images/roomBallRoom.png'/>
-                    </div>
-					<div class="hallway">
-                        <img class="hallway" src='images/hallway.png'/>
-                    </div>
-					<div id="kitchen">
-                        <img class="room" src='images/roomKitchen.png'/>
-                    </div>
+                    <img id="profPlum" class="player" src="images/profPlum.png" draggable="true">
+                    <img class="room" src='images/hallway.png'/>
+                    <img class="room" src='images/hallway.png'/>
+                    <img class="room" src='images/hallway.png'/>
+                    <img class="room" src='images/hallway.png'/>
+                    <img id="colMustard" class="player" src="images/colMustard.png" draggable="true">
+                    <img class="room" src='images/hallway.png'/>
 				</div>
 
-                
+				<div class = "row">
+					<img class="room" src='images/roomLibrary.png'/>
+                    <img class="room" src='images/hallway.png'/>
+                    <img class="room" src='images/roomBilliard.png'/>
+                    <img class="room" src='images/hallway.png'/>
+                    <img class="room" src='images/roomDining.png'/>
+				</div>
+
+				<div class = "row">
+                    <img id="mrsPeacock" class="player" src="images/mrsPeacock.png" draggable="true">
+					<img class="room" src='images/hallway.png'/>
+                    <img class="room" src='images/hallway.png'/>
+                    <img class="room" src='images/hallway.png'/>
+                    <img class="room" src='images/hallway.png'/>
+                    <img class="room" src='images/hallway.png'/>
+				</div>
+					
+				
+				
+				<div class = "row">
+					<img class="room" id="roomConservatory" src='images/roomConservatory.png'/>
+                    <img id="mrGreen" class="player" src="images/mrGreen.png" draggable="true">
+                    <img class="room" src='images/hallway.png'/>
+                    <img class="room" id="roomBallRoom" src='images/roomBallRoom.png'/>
+                    <img id="mrsWhite" class="player" src="images/mrsWhite.png" draggable="true">
+                    <img class="room" src='images/hallway.png'/>
+                    <img class="room" id="roomKitchen" src='images/roomKitchen.png'/>
+				</div>
+
 			</div><!--board-->
 			
-            
-            
-			<div id="playerPanel">			
-				<img id="colMustard" class="player" src="images/colMustard.png" draggable="true">
-				<img id="missScarlet" class="player" src="images/missScarlet.png" draggable="true">
-				<img id="mrGreen" class="player" src="images/mrGreen.png" draggable="true">
-				<img id="mrsPeacock" class="player" src="images/mrsPeacock.png" draggable="true">
-				<img id="mrsWhite" class="player" src="images/mrsWhite.png" draggable="true">
-				<img id="profPlum" class="player" src="images/profPlum.png" draggable="true">
-			</div><!-- #playerPanel -->
 
 	</div><!-- .containerEnd-->
         
@@ -213,4 +151,3 @@
     </body>
     
 </html>
-
