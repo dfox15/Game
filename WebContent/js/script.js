@@ -1,8 +1,38 @@
 // script.js
 
-$('.enter_link').click(function () {
-    $(this).parent('#splashscreen').fadeOut(500);
-});
+$.fn.center = function () {
+  this.css("position","absolute");
+  this.css("top", Math.max(0, (
+    ($(window).height() - $(this).outerHeight()) / 2) + 
+     $(window).scrollTop()) + "px"
+  );
+  this.css("left", Math.max(0, (
+    ($(window).width() - $(this).outerWidth()) / 2) + 
+     $(window).scrollLeft()) + "px"
+  );
+  return this;
+}
+
+$("#splashScreen").show();
+$("#splashScreen-content").show().center();
+
+/*setTimeout(function(){    
+  $("#overlay").fadeOut();
+}, 150000);
+*/
+
+function startGame() {
+    $("#splashScreen").fadeOut();
+}
+
+
+
+
+
+
+
+
+
 
 $(function() {
 	$('.player').draggable({

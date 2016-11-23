@@ -10,7 +10,8 @@
         
         <!-- jQuery UI CSS -->
         <link href="js/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet">
-		
+		<script type="text/javascript" src="splashScreen.js"></script>
+
     </head>
     
     <body>
@@ -66,10 +67,22 @@
             
             <br>
 			
-            <div id="splashscreen">
-                <h2>Welcome !</h2>
-                <a href="#" class="enter_link">Enter on the website</a>
+            <div id="splashScreen">
+                <div id="splashScreen-content">
+                    <h3>Welcome to Clue-Less</h3>
+                    <label for="numOfPlayers">Number of Players</label>
+                        <select name="numOfPlayers" id="numPlayers" style="width: 145px">
+                            <!--option value="1">1</option>
+                            <option value="2">2</option-->
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                         <button onclick="startGame()">Start Game!</button> 
+                </div>
             </div>
+            
             <!--p>How many players are there? <span id="current"></span>
 			<input type="text" id="myText">
 

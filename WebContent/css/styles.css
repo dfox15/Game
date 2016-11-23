@@ -1,12 +1,26 @@
 /* styles.css */
 
-#splashscreen {
-    position:absolute;
-    top:0;
-    left:0;
-    bottom:0;
-    width:100%;
-    background-color:white;
+#splashScreen{
+    	display: none;
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	opacity: 0.8;
+	z-index:1001;
+}
+
+#splashScreen-content{ 
+	position: absolute;
+	display: none;
+	width: 360px;
+	height: 90px;
+	padding: 16px;
+	border: 16px solid orange;
+	background-color: white;
+	z-index:1002;
 }
 
 ul {
