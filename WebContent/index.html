@@ -3,7 +3,7 @@
 
     <head>
 	<meta charset="utf-8">
-        <title>Clue-Less-Divs</title>
+        <title>Clue-Less</title>
         
         <link href="css/normalize.css" rel="stylesheet">
         <link href="css/styles.css" rel="stylesheet">
@@ -14,17 +14,36 @@
 
     </head>
     
+	
     <body>
 
         <div class="container gray" style="background-color:#6EAC7D" class="clearfix">
-            <!--h1>Clue-Less</h1-->
-            <!--button id="playGameBtn">Play game</button-->
             
+			
+			<!--h1>Clue-Less</h1style="background-color:#6EAC7D" -->
+            <!--button id="playGameBtn">Play game</button-->
+            <div>
+			<img class="cluetest" align="right" src="images/cluegame.png"/>
+			</div>
+			<br>
+			</br>
+			<br>
+			</br>
+			<div>
+				<h4> <u> <b id="curPlayer"> ,</u> it is currently your turn!  </h4>
             <br>
+			</div>
             <form method="get" id="selection">
                 <div class="guess">
+                  <label for="rollDice">Roll Dice</label>
+				  <div>
+                    <input disabled="disabled" id="numbOfMoves" style="width: 40px; height:40px" /> <button id="rollDiceButton" onclick="rollDice(event)">Roll</button>
+				  </div>
+                </div>
+                <br>
+                <div class="guess">
                   <label for="suspectList">Guess Suspect</label>
-                        <select name="suspectList" id="suspectList" style="width: 145px" onchange="chooseSuspect()">
+                        <select name="suspectList" id="suspectList" style="width: 150px ; height; 50px">
                           <option value="Colonel Mustard">Colonel Mustard</option>
                           <option value="Miss Scarlet">Miss Scarlet</option>
                           <option value="Professor Plum">Professor Plum</option>
@@ -36,7 +55,7 @@
                 <br>
                 <div class="guess">
                   <label for="weaponList">Guess Weapon</label>
-                        <select name="weaponList" id="weaponList" style="width: 145px" onchange="chooseWeapon()">
+                        <select name="weaponList" id="weaponList" style="width: 150px ; height; 50px">
                           <option value="Rope">Rope</option>
                           <option value="Lead Pipe">Lead Pipe</option>
                           <option value="Knife">Knife</option>
@@ -47,29 +66,45 @@
                 <br>
               <div class="guess">
                   <label for="locationList">Guess Location</label>
-                     <select name="LocationList" id="locationList" style="width: 145px" onchange="chooseLocation()">
-                         <option value="Study">Study</option>
-                         <option value="Hall">Hall</option>
-                         <option value="Lounge">Lounge</option>
-                         <option value="Library">Library</option>
-                         <option value="Billiard Room">Billiard Room</option>
-                         <option value="Dining Room">Dining Room</option>
-                         <option value="Conservatory">Conservatory</option>
-                         <option value="Ballroom">Ballroom</option>
-                         <option value="Kitchen">Kitchen</option>
+                     <select disabled="disabled" name="LocationList" id="locationList" style="width: 150px ; height; 50px" onchange="chooseLocation()">
+                         <option value=""></option>
+						 <option value="roomStudy">Study</option>
+                         <option value="roomHall">Hall</option>
+                         <option value="roomLounge">Lounge</option>
+                         <option value="roomLibrary">Library</option>
+                         <option value="roomBilliard">Billiard Room</option>
+                         <option value="roomDining">Dining Room</option>
+                         <option value="roomConservatory">Conservatory</option>
+                         <option value="roomBallroom">Ballroom</option>
+                         <option value="roomKitchen">Kitchen</option>
                         </select>
                 </div>
-                <p>Result: <input type="text"  style="width: 140px" id="result"></p>
-               <!--  <button id="guessBtn">Guess</button> -->
-               
-               <input type="submit" value="SEND" />
-            </form>
+               <!--  <p>Result: <input type="text"  style="width: 140px height:10px" id="result" /></p>
+                <button id="guessBtn">Guess</button> -->
+               <br>
+			   <div align=center>
+               <button id="endTurn" onclick="setNextPlayerTurnText();event.preventDefault(); return false;">End Turn</button>
+			   </div>
+			   </br></br>
+			   <div align=center>
+			   <button disabled="disabled" id="guessButton" onclick="guess();event.preventDefault(); return false;">Suspect</button>
+				</div>
+		   </br></br>
+		   <div align=center>
+			   <button id="accuseButton" onclick="accuse();event.preventDefault(); return false;">Accuse</button>
+           </div>
+		   <br><br>
+		   			<textarea id="log" align="left" style="width:300px ; height:375px" > </textarea>
+		   </form>
             
             <br>
             <div id="splashScreen">
                 <div id="splashScreen-content">
                     <h3>Welcome to Clue-Less</h3>
-                    <label for="numOfPlayers">Number of Players</label>
+                      <div>
+			<img class="cluetest" align="center" src="images/cluegame.png"/>
+			</div>
+					<label for="numOfPlayers">Number of Players</label>
                         <select name="numOfPlayers" id="numPlayers" style="width: 145px">
                             <!--option value="1">1</option>
                             <option value="2">2</option-->
@@ -77,42 +112,43 @@
                             <option value="4">4</option>
                             <option value="5">5</option>
                             <option value="6">6</option>
-                        </select>
-                         <button onclick="startGame()">Start Game!</button> 
+                         </select>
+						 <br></br>
+                         <button id=StartGame onclick="startGame()">Start Game!</button> 
+						
                 </div>
             </div>
 			
 			<div id ="board">
-				
-				<div class="row">				
-                    <img class="room" id="roomStudy" src='images/roomStudy.png'/>
+					<div class="row">				
+                    <img class="room" title="Study" id="roomStudy" src='images/roomStudy.png'/>
                     <img class="room" src='images/hallway.png'/>
-                    <img class="room" id="roomHall" src='images/roomHall.png'/>
-                    <img id="missScarlet" class="player" src="images/missScarlet.png" draggable="true">
+                    <img class="room" title="Hall" id="roomHall" src='images/roomHall.png'/>
+                    <img id="missScarlet" title="Miss Scarlet" class="player" src="images/missScarlet.png" draggable="true">
                     <img class="room" src='images/hallway.png'/>
-                    <img class="room" id="roomLounge" src='images/roomLounge.png'/>
+                    <img class="room" title="Lounge" id="roomLounge" src='images/roomLounge.png'/>
 				</div>
 	
 				<div class = "row">
-                    <img id="profPlum" class="player" src="images/profPlum.png" draggable="true">
+                    <img id="profPlum" title="Professor Plum" class="player" src="images/profPlum.png" draggable="true">
                     <img class="room" src='images/hallway.png'/>
                     <img class="room" src='images/hallway.png'/>
                     <img class="room" src='images/hallway.png'/>
                     <img class="room" src='images/hallway.png'/>
-                    <img id="colMustard" class="player" src="images/colMustard.png" draggable="true">
+                    <img id="colMustard" title="Colonel Mustard" class="player" src="images/colMustard.png" draggable="true">
                     <img class="room" src='images/hallway.png'/>
 				</div>
 
 				<div class = "row">
-					<img class="room" src='images/roomLibrary.png'/>
+					<img class="room" title="Library" id="roomLibrary" src='images/roomLibrary.png'/>
                     <img class="room" src='images/hallway.png'/>
-                    <img class="room" src='images/roomBilliard.png'/>
+                    <img class="room" title="Billiard Room" id="roomBilliard" src='images/roomBilliard.png'/>
                     <img class="room" src='images/hallway.png'/>
-                    <img class="room" src='images/roomDining.png'/>
+                    <img class="room" Title="Dining Room" src='images/roomDining.png'/>
 				</div>
 
 				<div class = "row">
-                    <img id="mrsPeacock" class="player" src="images/mrsPeacock.png" draggable="true">
+                    <img id="mrsPeacock" title="Mrs. Peacock" class="player" src="images/mrsPeacock.png" draggable="true">
 					<img class="room" src='images/hallway.png'/>
                     <img class="room" src='images/hallway.png'/>
                     <img class="room" src='images/hallway.png'/>
@@ -120,20 +156,18 @@
                     <img class="room" src='images/hallway.png'/>
 				</div>
 					
-				
-				
 				<div class = "row">
-					<img class="room" id="roomConservatory" src='images/roomConservatory.png'/>
-                    <img id="mrGreen" class="player" src="images/mrGreen.png" draggable="true">
+					<img class="room" title="Conservatory" id="roomConservatory" src='images/roomConservatory.png'/>
+                    <img id="mrGreen" title="Mr. Green" class="player" src="images/mrGreen.png" draggable="true">
                     <img class="room" src='images/hallway.png'/>
-                    <img class="room" id="roomBallRoom" src='images/roomBallRoom.png'/>
-                    <img id="mrsWhite" class="player" src="images/mrsWhite.png" draggable="true">
+                    <img class="room" Title= "Ballroom" id="roomBallroom" src='images/roomBallRoom.png'/>
+                    <img id="mrsWhite" title="Mrs. White" class="player" src="images/mrsWhite.png" draggable="true">
                     <img class="room" src='images/hallway.png'/>
-                    <img class="room" id="roomKitchen" src='images/roomKitchen.png'/>
+                    <img class="room" Title="Kitchen" id="roomKitchen" src='images/roomKitchen.png'/>
 				</div>
 
 			</div><!--board-->
-			
+
 
 	</div><!-- .containerEnd-->
         

@@ -12,6 +12,12 @@ html {
   -webkit-text-size-adjust: 100%; /* 2 */
 }
 
+h3{
+text-align: center;
+font-family: Arial;
+font: Arial;
+font-size"40px";
+}
 /**
  * Remove default margin.
  */
@@ -293,6 +299,7 @@ input[type="reset"],
 input[type="submit"] {
   -webkit-appearance: button; /* 2 */
   cursor: pointer; /* 3 */
+  background-color: gray;
 }
 
 /**

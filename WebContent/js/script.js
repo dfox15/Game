@@ -1,5 +1,10 @@
 // script.js
 
+var curPlayerText = $('#curPlayer')
+var state = {};
+
+
+
 $.fn.center = function () {
   this.css("position","absolute");
   this.css("top", Math.max(0, (
@@ -16,21 +21,219 @@ $.fn.center = function () {
 $("#splashScreen").show();
 $("#splashScreen-content").show().center();
 
-function startGame() {
-    $("#splashScreen").fadeOut();
+function log(message)
+{
+	var cur = $('#log').val();
+	cur += "Player " + state.curPlayer.attr("title") + " " + message + "\r\n"
+	$('#log').val(cur);
+	
 }
+
+
+function rollDice(e)
+{
+	e.preventDefault()
+	$('#rollDiceButton').attr('disabled','disabled')
+	var rand = Math.ceil(4 * Math.random())
+	$('#numbOfMoves').val(rand)
+	log("rolled a " + rand)
+	return false;
+}
+
+function nextPlayerTurn() {
+	if(!state.curPlayer) {
+		state.curPlayer = $('.player').first()
+		return;
+	}
+	var players = $('.player');
+	var index = players.index(state.curPlayer) + 1;
+	
+	if(index >= state.playerCount)
+		index = 0;
+	
+	state.curPlayer = $(players[index]);
+
+}
+
+function setNextPlayerTurnText()
+{
+	$('#rollDiceButton').removeAttr('disabled')
+	$('#guessButton').attr('disabled', 'disabled');
+	$('#numbOfMoves').val(null);
+	$('#locationList').val('')
+	nextPlayerTurn();
+
+	var nextPlayerText = state.curPlayer.attr('title')
+	curPlayerText.text(nextPlayerText);
+
+}
+
+function selectGuilty()
+{
+	var suspects = $('#suspectList').children('option')
+	var suspectLength = suspects.length	
+	var selectedSuspect = Math.floor(Math.random() * suspectLength)
+	
+	state.suspect = $(suspects[selectedSuspect]).val();
+	
+	var weapons = $('#weaponList').children('option')
+	var weaponsLength = weapons.length	
+	var selectedWeapon = Math.floor(Math.random() * weaponsLength)
+	
+	state.weapon = $(weapons[selectedWeapon]).val();
+	
+	var rooms = $('#locationList').children('option')
+	var roomsLength = rooms.length	
+	var selectedRoom = Math.floor(Math.random() * roomsLength)
+	
+	state.location = $(rooms[selectedRoom]).val();
+}
+
+function guess() {
+	var win = true;
+		if($('#suspectList').val() !== state.suspect) {
+		win = false;
+		alert("You have the wrong suspect!");
+	}
+	
+	if($('#weaponList').val() !== state.weapon && win) {
+		win = false;
+		alert("You have the wrong weapon!");
+	}
+		
+	if($('#locationList').val() !== state.location && win) {
+		win = false;
+		alert("You have the wrong location!");
+	}
+	if(!win){
+	log("was proved " + win)
+	setNextPlayerTurnText();
+
+	}
+	else {
+	alert("Your instincts are correct, you have suspected correctly.");
+	log("was not proved" + win)
+	}
+}
+
+function accuse(){
+	var win = true;
+			if($('#suspectList').val() !== state.suspect) {
+		win = false;
+		alert("You have made a false accusation, YOU LOSE!");
+	}
+	
+	if($('#weaponList').val() !== state.weapon && win) {
+		win = false;
+		alert("You have made a false accusation, YOU LOSE!");
+	}
+		
+	if($('#locationList').val() !== state.location && win) {
+		win = false;
+		alert("You have made a false accusation, YOU LOSE!");
+	}
+	if(!win){
+		log("made a " + win + " accusation and is now out of the game.")
+		var temp = state.curPlayer;
+		setNextPlayerTurnText();
+		state.playerCount--;
+		temp.remove();
+
+		}
+	else {
+	alert("YOU WIN!!!");
+	log("made a correct accusation and has won the game. Game Over!")
+	}
+	
+}
+
+
+
+function startGame() {
+	state.playerCount = parseInt($("#numPlayers").val());
+	$('.player').each(function(i, p) {
+		if(i >= state.playerCount)
+			$(p).hide();
+	})
+	
+    $("#splashScreen").fadeOut();
+	
+	setNextPlayerTurnText();
+	selectGuilty();
+	$('#log').val("");
+}
+
+
 
 $(function() {
 	$('.player').draggable({
 		containment: ".container", 
 		scroll: false,
-		stack: ".player"
+		stack: ".player",
+		revert: moveInvalid
 	});
 
-function moveValid() {
-    if ($('.room').is(':empty')){
-        alert("here")
-    }
+function distance(startRoom, endRoom) {
+	
+	var sx = startRoom % 5
+	var sy = Math.floor(startRoom / 5)
+	
+	var ex = endRoom % 5
+	var ey = Math.floor(endRoom / 5)
+	
+	return Math.abs(sx - ex) + Math.abs(sy - ey)
+}
+	
+function moveInvalid(room) {
+    if(this.attr('id') !== state.curPlayer.attr('id')) {
+		alert("Wait your turn!");
+		return true;
+	}
+	
+	var rooms = $('.room');
+	var totalNumbOfMoves = $('#numbOfMoves').val();
+	
+	if(!totalNumbOfMoves) {
+		alert("Please roll the dice");
+		return true;
+	}
+	var startRoom = this.data('curRoom') || this.next()
+	var start = rooms.index(startRoom);
+	var end = rooms.index(room);
+	
+	
+
+	var numbOfMoves = distance(start, end);	
+	
+	if((start === 0&& end === 24)||
+	(start === 4&& end === 20) ||
+	(start === 24&& end === 0)|| 
+	(start === 20&& end === 4)){
+		numbOfMoves = 1;
+		
+	}
+	
+	if(numbOfMoves > totalNumbOfMoves) {
+		alert("Please move only within your roll");
+		return true;
+	}
+	
+	$('#numbOfMoves').val(totalNumbOfMoves - numbOfMoves);
+		
+	this.data('curRoom', room);
+	var roomId = room.attr('id');
+	$('#locationList').val(roomId)
+	
+	if(roomId) {
+		$('#guessButton').removeAttr('disabled');
+	}
+	else {
+		$('#guessButton').attr('disabled', 'disabled');
+	}
+
+	log('moved ' + numbOfMoves + " space(s)")
+	return false;
+	
 }
 
 function isEmpty() {
@@ -38,7 +241,7 @@ function isEmpty() {
         alert("here")
     //$( "#draggable" ).draggable({ revert: true });
 }
-    
+	
 $('.room').droppable({
     tolerance: 'intersect',
     drop: function(event, ui) {
@@ -54,15 +257,14 @@ $('.room').droppable({
         isEmpty();
     },
 	stop: function (event, ui) {
-    var item = $(ui.item);
-    var to = item.parent().is(".room");
-    var siblingsCount = item.siblings().size();
-    if (to && siblingsCount > 0) {
-      alert("only one item allowed here");
-      return false;
+		var item = $(ui.item);
+		var to = item.parent().is(".room");
+		var siblingsCount = item.siblings().size();
+		if (to && siblingsCount > 0) {
+		  alert("only one item allowed here");
+		  return false;
+		}
     }
-    },
-    revert:'invalid'
 });
 
 $('.boxArt').draggable({
@@ -86,6 +288,10 @@ $("#droppable_widget, .draggable_widget").sortable({
     }
   }
 });
+
+
+
+
 
 /*$(function() {
     // Character draggable operations
@@ -182,28 +388,6 @@ $('#playGame').click(function() {
 console.log(numeric);
 console.log(obj);
 console.log(mixed);*/
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	

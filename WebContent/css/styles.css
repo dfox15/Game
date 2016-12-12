@@ -1,7 +1,7 @@
 /* styles.css */
 
 #splashScreen{
-    	display: none;
+    display: none;
 	position: fixed;
 	top: 0%;
 	left: 0%;
@@ -11,16 +11,113 @@
 	opacity: 0.8;
 	z-index:1001;
 }
+#endTurn{
+  -webkit-border-radius: 14;
+  -moz-border-radius: 14;
+  border-radius: 14px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 25px;
+  background: #4282cc;
+  padding: 8px 40px 8px 40px;
+  text-decoration: none;
+}
+#endTurn:hover {
+  background: #fc3c66;
+  background-image: -webkit-linear-gradient(top, #fc3c66, #944040);
+  background-image: -moz-linear-gradient(top, #fc3c66, #944040);
+  background-image: -ms-linear-gradient(top, #fc3c66, #944040);
+  background-image: -o-linear-gradient(top, #fc3c66, #944040);
+  background-image: linear-gradient(to bottom, #fc3c66, #944040);
+  text-decoration: none;
+}
 
+#rollDiceButton{
+  -webkit-border-radius: 14;
+  -moz-border-radius: 14;
+  border-radius: 14px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 25px;
+  background: #0f2033;
+  padding: 8px 40px 8px 40px;
+  text-decoration: none;
+}
+#rollDiceButton:hover{
+  background: #adadad;
+  background-image: -webkit-linear-gradient(top, #adadad, #5b615b);
+  background-image: -moz-linear-gradient(top, #adadad, #5b615b);
+  background-image: -ms-linear-gradient(top, #adadad, #5b615b);
+  background-image: -o-linear-gradient(top, #adadad, #5b615b);
+  background-image: linear-gradient(to bottom, #adadad, #5b615b);
+  text-decoration: none;
+  }
+#guessButton{
+  -webkit-border-radius: 14;
+  -moz-border-radius: 14;
+  border-radius: 14px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 25px;
+  background: #8a7666;
+  padding: 8px 40px 8px 40px;
+  text-decoration: none;
+}
+#guessButton:hover {
+  background: #b1f511;
+  text-decoration: none;
+}
+
+#accuseButton{
+  -webkit-border-radius: 14;
+  -moz-border-radius: 14;
+  border-radius: 14px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 25px;
+  background: #5a7666;
+  padding: 8px 40px 8px 40px;
+  text-decoration: none;
+}
+
+#accuseButton:hover {
+  background: #f1f511;
+  text-decoration: none;
+}
 #splashScreen-content{ 
 	position: absolute;
 	display: none;
-	width: 360px;
-	height: 90px;
+	width: 400px;
+	height: 525px;
 	padding: 16px;
+	text-align:Center;
 	border: 16px solid orange;
 	background-color: white;
 	z-index:1002;
+}
+#StartGame{
+  -webkit-border-radius: 24;
+  -moz-border-radius: 24;
+  border-radius: 24px;
+  font-family: Georgia;
+  color: #ffffff;
+  font-size: 25px;
+  background: #34d986;
+  padding: 12px 30px 12px 30px;
+  text-decoration: none;
+}
+}
+
+h3{
+font-family: Arial;
+font-style: bold;
+font-size:40px;
+}
+
+h4{
+font-family: Serif;
+font-size: 40px;
+text-align: left;
 }
 
 ul {
@@ -36,9 +133,9 @@ body {
 #selection {
     position: absolute;
     right: 0px;
-    width: 175px;
-    padding-top: 10px;
-    padding-right: 10px;
+    width: 225px;
+    padding-top: 150px;
+    padding-right: 150px;
 }
 
 #result{
@@ -47,16 +144,11 @@ body {
 
 #guessBtn {
     height: 25px;
+	width: 43px;
+	align: center;
+	
+	
 }
-
-
-
-
-
-
-
-
-
 
 .row {
 	width: 775px;
@@ -79,12 +171,12 @@ body {
 }
 
 
-/*TODO: make all characeters this size */
+/*TODO: make all characters this size */
 #profPlum, #colMustard, #missScarlet,
 #mrGreen, #mrsPeacock, #mrsWhite {
 	
-	height: 100px;
-	width: 50px;
+	height: 75px;
+	width: 55px;
     position: absolute;
     z-index: 99;
 }
@@ -92,10 +184,10 @@ body {
 
 .container {
     position: relative;
-    width: 1100px;
+    width: 1400px;
     margin: 40px auto;
     background-color: #73AD21;
-    padding: 20px;
+    padding: 20px 90px 315px 20px;
     box-sizing: border-box;
     border: solid 1px #ccc;
 }
